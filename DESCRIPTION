@@ -1,0 +1,20 @@
+Package: tstPkg
+Type: Package
+Title: Test Package
+Version: 0.0.1
+Date: 2022-03-31
+Authors@R: c(
+    person("Bryan A.", "Hanson",
+      role = c("aut", "cre"),
+      email = "hanson@depauw.edu",
+      comment = c(ORCID = "0000-0003-3536-8246")))
+Description: A Test Package.
+License: GPL-3
+VignetteBuilder: knitr
+Encoding: UTF-8
+Suggests: knitr, rmarkdown, plotly, htmlwidgets
+RoxygenNote: 7.1.2
+NeedsCompilation: no
+Packaged: 2022-04-05 03:16:40 UTC; bryanhanson
+Author: Bryan A. Hanson [aut, cre] (<https://orcid.org/0000-0003-3536-8246>)
+Maintainer: Bryan A. Hanson <hanson@depauw.edu>

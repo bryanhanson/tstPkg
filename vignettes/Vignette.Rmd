@@ -1,0 +1,53 @@
+---
+title:  "Test Vignette"
+author:
+  - Bryan A. Hanson^[Professor Emeritus of Chemistry & Biochemistry, DePauw University, Greencastle IN USA., hanson@depauw.edu]
+date:  "`r Sys.Date()`"
+output:
+    bookdown::html_document2: # use for pkgdown site
+#      bookdown::pdf_document2: # use for CRAN to keep size down; breaks GHA
+      toc: yes
+      toc_depth: 2
+      fig_caption: yes
+      number_sections: false
+vignette: >
+    %\VignetteIndexEntry{Vignette}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+pkgdown:
+  as_is: true
+---
+
+```{r SetUp, echo = FALSE, eval = TRUE, results = "hide"}
+# R options & configuration:
+set.seed(13)
+suppressPackageStartupMessages(library("knitr"))
+suppressPackageStartupMessages(library("plotly"))
+suppressPackageStartupMessages(library("htmlwidgets"))
+
+# Stuff specifically for knitr:
+opts_chunk$set(eval = TRUE, echo = FALSE)
+
+if (!dir.exists("graphics")) dir.create("graphics")
+```
+
+**Test Vignette**
+
+Trying to troubleshoot a problem with interactive diagrams not being included.
+
+```{r testFig, results = "show"}
+
+if (!is_latex_output()) {
+  DF <- data.frame(
+  x <- rnorm(50),
+  y <- rnorm(50),
+  z <- rnorm(50))
+
+  fig <- plot_ly(
+    name = "data", DF, x = ~x, y = ~y, z = ~z,
+    marker = list(size = 2.0)) %>%
+    add_markers()
+  saveWidget(partial_bundle(fig), "graphics/testFig.html", knitrOptions = list(results = "show"))
+  include_url("graphics/testFig.html")
+}
+```

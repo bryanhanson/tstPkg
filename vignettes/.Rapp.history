@@ -1,0 +1,7 @@
+library(tools)
+?buildVignette
+?pkgVignettes
+setwd("~/Desktop/Trouble/tstPkg/vignettes")
+buildVignettes(".", quiet = FALSE, tangle = TRUE)
+buildVignette("Vignette.Rmd", quiet = FALSE, tangle = TRUE)
+buildVignette("Vignette.Rmd", quiet = FALSE, tangle = FALSE)
